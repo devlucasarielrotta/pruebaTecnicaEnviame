@@ -1,0 +1,39 @@
+version: "3"
+services:
+  
+  ecommerce-app:
+  
+    build: .
+    container_name: ${ECOMMERCE_SERVICE_NAME}
+    command: ["npm", "run", "start"]
+  
+    env_file:
+      - .env
+    
+    environment:
+      - SEQUELIZE_HOST=${MYSQL_HOST}
+      - SEQUELIZE_DATABASE=${MYSQL_DATABASE}
+
+    volumes:
+      - ./:/app
+      
+    ports:
+      - ${ECOMMERCE_APP_PORT}:8000
+    
+    depends_on:
+      - ecommerce-mysql
+  
+  ecommerce-mysql:
+    image: mysql:8
+    restart: always
+    container_name: ${MYSQL_HOST}
+  
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+
+    ports:
+      - ${MYSQL_PORT}:3306
+  
+    command: 
+      - --default-authentication-plugin=mysql_native_password
