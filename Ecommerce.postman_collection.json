@@ -1,0 +1,1067 @@
+{
+	"info": {
+		"_postman_id": "7b163201-ffe8-4227-aca4-9c278076d383",
+		"name": "Ecommerce",
+		"description": "Folder Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23402307"
+	},
+	"item": [
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Obtener Categorias",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/categorias/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener Todas  Categorias",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/categorias",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categorias"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Obtener Todas Categorias por Usuario",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/categorias/?user=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categorias",
+										""
+									],
+									"query": [
+										{
+											"key": "user",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Obtener Categoria ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categorias/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener Categoria ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/categorias/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categorias",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Crear Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Vehiculo\",\r\n    \"description\":\"Autos terrestre\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categorias",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Categoria",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Vehiculo\",\r\n    \"description\":\"Autos terrestre\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categorias",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categorias"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Editar Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Cambiar por otra categoria\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categorias/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Editar Categoria",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Cambiar por otra categoria\",\r\n    \"description\":\"opcional\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categorias/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categorias",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Borrar Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categorias/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Borrar Categoria",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/categorias/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categorias",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Obtener Productos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/productos/?offset=0&limit=100",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								""
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Productos Por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/productos/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Prueba crear producto\",\r\n    \"seller_user\":10,\r\n    \"categories\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/productos/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Producto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Prueba crear producto\",\r\n    \"seller_user\":10,\r\n    \"categories\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/productos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"productos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Editar Producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/productos/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/productos/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Obtener Transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/transacciones/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transacciones",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Transactions con Usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/transacciones/?type=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transacciones",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Transaction por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/transacciones/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transacciones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"buyer_user\":1,\r\n     \"products\": [{\"productId\": 1,\"quantity\":1 },{\"productId\": 2,\"quantity\": 2}]\r\n  \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/transacciones",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transacciones"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Transaction",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n    \"buyer_user\":1,\r\n     \"products\": [{\"productId\": 1,\"quantity\":1 },{\"productId\": 2,\"quantity\": 2}]\r\n  \r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/transacciones",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"transacciones"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Editar Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/transacciones",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transacciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/transacciones/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transacciones",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Obtener Usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/usuarios/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Usuarios Buyers/sellers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/usuarios/?type=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener Usuarios Buyers/sellers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/?type=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										""
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Obtener Usuario por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/usuarios/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \"id\":3,\r\n     \"name\":\"lucas\",\r\n     \"email\":\"lucas333lucas.com\",\r\n     \"password\":\"prueba\",\r\n     \"is_admin\": true\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Usuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{    \"id\":3,\r\n     \"name\":\"lucas\",\r\n     \"email\":\"lucas333lucas.com\",\r\n     \"password\":\"prueba\",\r\n     \"is_admin\": true\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Editar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"email\":\"lucas114@lucas.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuarios/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Editar Usuario",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \r\n    \"email\":\"lucas114@lucas.com\",\r\n    \"password\":\"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/usuarios/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Borrar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1NTc2MTQ5LCJleHAiOjE2OTU1OTA1NDl9.J1rhhU5E8_d83t6Hux7VDQMMwukjLT_EKSHrEWqGv3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuarios/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Esta carpeta contiene todos los metodos de la entidad Usuario"
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"lucas100@lucas.com\",\r\n    \"password\":\"prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/ecommerce-service/",
+			"type": "string"
+		}
+	]
+}
