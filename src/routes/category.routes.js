@@ -1,6 +1,5 @@
 import { Router } from "express";
-import {check,body,param} from 'express-validator';
-import { getCategories,getCategory,postCategory,putCategory,deleteCategory } from "../controllers/category.controller.js";
+import { getCategories,getCategory,postCategory,putCategory,deleteCategory } from "../controllers/index.controller.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 
@@ -17,6 +16,9 @@ router.post('/',[
 
 router.put('/:id',putCategory);
 
-router.delete('/:id',deleteCategory);
+router.delete('/:id',[
+    validarJWT,
+    validarCampos
+],deleteCategory);
 
 export default router;

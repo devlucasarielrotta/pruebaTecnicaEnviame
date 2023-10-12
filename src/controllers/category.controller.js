@@ -1,10 +1,7 @@
 import { Sequelize } from "sequelize";
 import { request, response } from "express";
-import Category from "../models/Category.models.js";
-import Product from "../models/Product.model.js";
-import Transaction from "../models/Transaction.models.js";
-import TransactionProduct from "../models/TransactionProduct.model.js";
-import User from "../models/User.models.js";
+import {Category,Product,Transaction,TransactionProduct, User} from '../models/index.models.js'
+
 const getCategories = async ( req=request, res=response ) => {
 
     
@@ -15,8 +12,8 @@ const getCategories = async ( req=request, res=response ) => {
         switch(Number(user)){
 
             case 0 :
-
-                const {count:Total,rows:categorias} = await Category.findAndCountAll({
+                //trae las categorias asociadas con sus productos
+                const {rows:categorias} = await Category.findAndCountAll({
                     offset:Number(offset),
                     limit:Number(limit),
                     include: [
@@ -27,9 +24,10 @@ const getCategories = async ( req=request, res=response ) => {
                         }
                     ],
                 });
-        
+                const {count:total} = await Category.findAndCountAll();
+
                 res.status(200).json({
-                    Total,
+                    total,
                     categorias
                 })
         
@@ -70,11 +68,10 @@ const getCategories = async ( req=request, res=response ) => {
                 const categoryIds = productsObject.map((product) => product.dataValues.categories);
                 const categoriasByUser = await Category.findAll({
                     where: {
-                      id: {
-                        [Sequelize.Op.in]: categoryIds,
-                      },
+                      id: { [Sequelize.Op.in]: categoryIds,},
                     },
                   });
+
                 res.status(200).json({
                     usuario,
                     categoriasByUser
@@ -86,7 +83,7 @@ const getCategories = async ( req=request, res=response ) => {
     }catch(error){
         console.log(error);
         res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
     
@@ -120,7 +117,7 @@ const getCategory = async ( req=request, res=response ) => {
     }catch(error){
         console.log(error);
         res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
     
@@ -184,7 +181,7 @@ const postCategory = async ( req=request, res=response ) => {
 
         console.log(error);
         res.status(500).json({
-            msg:error
+            msg:error.message
         })
 
     }
@@ -234,7 +231,7 @@ const putCategory = async ( req=request, res=response ) => {
         })
     }catch(error){
          res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
  
@@ -257,21 +254,7 @@ const deleteCategory = async ( req=request, res=response ) => {
                 msg:`La categoria con id ${id} no existe`
             })
         }
-        // console.log(categoryDB);
-        // const {id:categoryId} = categoryDB.dataValues;
-        
-        // const productsByCategory = await Product.findAll({
-        //     where:{
-        //         categories:categoryId
-        //     }
-            
-        // })
-       
-        // for (const producto of productsByCategory) {
-        //     const {id} = producto.dataValues
-        //     const productoDB = await Product.findByPk(id);
-        //     productoDB.update({categories:null})
-        // }
+
         const resultado = await categoryDB.destroy();
         
         res.status(200).json({
@@ -280,7 +263,7 @@ const deleteCategory = async ( req=request, res=response ) => {
 
     }catch(error){
          res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
  

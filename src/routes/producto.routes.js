@@ -1,6 +1,5 @@
 import { Router } from "express";
-import {check,body,param} from 'express-validator';
-import { getProduct,getProducts,postProduct,putProduct,deleteProduct } from "../controllers/producto.controller.js";
+import { getProduct,getProducts,postProduct,putProduct,deleteProduct } from "../controllers/index.controller.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 
@@ -19,6 +18,9 @@ router.post('/',[
 
 router.put('/:id',putProduct);
 
-router.delete('/:id',deleteProduct);
+router.delete('/:id',[    
+    validarJWT,
+    validarCampos
+],deleteProduct);
 
 export default router;

@@ -1,7 +1,5 @@
 import { Router } from "express";
-import { check } from 'express-validator';
-
-import { authPost, } from "../controllers/auth.controller.js";
+import { authPost } from "../controllers/index.controller.js";
 import { validarCampos } from '../middlewares/validar-campos.js';
 
 
@@ -13,6 +11,4 @@ router.post('/',[
 
 
 
-export {
-    router
-}
+export default router

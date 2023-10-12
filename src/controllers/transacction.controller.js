@@ -1,8 +1,5 @@
 import { request, response } from "express";
-import Transaction from "../models/Transaction.models.js";
-import User from "../models/User.models.js";
-import Product from "../models/Product.model.js";
-import TransactionProduct from "../models/TransactionProduct.model.js";
+import {User,Transaction,TransactionProduct,Product} from "../models/index.models.js";
 import { Sequelize } from "sequelize";
 
 const getTransactions = async ( req=request, res=response ) => {
@@ -120,7 +117,7 @@ const getTransactions = async ( req=request, res=response ) => {
     }catch(error){
         console.log(error);
         res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
     
@@ -166,7 +163,7 @@ const getTransaction = async ( req=request, res=response ) => {
     }catch(error){
         console.log(error);
         res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
     
@@ -245,7 +242,7 @@ const postTransaction = async (req, res) => {
       );
     } catch (error) {
         console.error(error);
-        res.status(500).json({ msg: 'Error al crear la transacción' });
+        res.status(500).json({ msg: error.message});
     }
   };
  
@@ -278,8 +275,8 @@ const putTransaction = async ( req=request, res=response ) => {
         })
 
     }catch(error){
-         res.status(400).json({
-            error
+         res.status(500).json({
+            msg:error.message
         })
     }
  
@@ -327,7 +324,7 @@ const deleteTransaction= async ( req=request, res=response ) => {
 
     }catch(error){
          res.status(500).json({
-            error
+            msg:error.message
         })
     }
  

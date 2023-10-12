@@ -1,6 +1,8 @@
 import { Router } from "express";
-import {check,body,param} from 'express-validator';
-import { getTransactions , getTransaction, postTransaction, deleteTransaction} from "../controllers/transacction.controller.js";
+import { getTransactions , getTransaction, postTransaction, deleteTransaction} from "../controllers/index.controller.js";
+import { validarJWT } from "../middlewares/validar-jwt.js";
+import { validarCampos } from "../middlewares/validar-campos.js";
+
 
 const router = Router();
 
@@ -8,10 +10,16 @@ const router = Router();
 router.get('/',getTransactions);
 router.get('/:id',getTransaction);
 
-router.post('/',postTransaction);
+router.post('/',[
+    validarJWT,
+    validarCampos
+],postTransaction);
 
 router.put('/:id',);
 
-router.delete('/:id',deleteTransaction);
+router.delete('/:id',[
+    validarJWT,
+    validarCampos
+],deleteTransaction);
 
 export default router;

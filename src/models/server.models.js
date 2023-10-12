@@ -1,14 +1,10 @@
 import express from             'express';
 import cors from                'cors';
 import { dbConnection } from    '../db/config.js';
-import userRoutes from          '../routes/user.routes.js';
-import transactionRoutes from   '../routes/transacction.routes.js';
-import categoryRoutes from      '../routes/category.routes.js';
-import productoCategory from    '../routes/producto.routes.js';
-import { router as loginRoutes } from '../routes/auth.routes.js';
+import { authRoutes , productRoutes,userRoutes,transactionRoutes,categoryRoutes} from '../routes/index.routes.js';
 
 
-class Server {
+export default class Server {
      
     constructor(){
         
@@ -52,8 +48,8 @@ class Server {
         this.app.use(this.paths.usuarios, userRoutes);
         this.app.use(this.paths.transacciones, transactionRoutes);
         this.app.use(this.paths.categorias, categoryRoutes);
-        this.app.use(this.paths.productos, productoCategory);
-        this.app.use(this.paths.auth, loginRoutes);
+        this.app.use(this.paths.productos, productRoutes);
+        this.app.use(this.paths.auth, authRoutes);
     }
 
     listen(){
@@ -65,6 +61,3 @@ class Server {
     
 }
 
-export {
-    Server
-}

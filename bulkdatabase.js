@@ -64,16 +64,28 @@ const bulkProductos = async () => {
     const productosBulk = [];
 
     for(let i = 0; i<30;i++){
-
-        productosBulk.push({
+        if(i%2==0){
+            productosBulk.push({
             
-            "name":         `Lavandina${i}`.toLowerCase(),
-            "description":  `Art limpieza${100+i}`.toLowerCase(),
-            "quantity":     i+1,
-            "status":       true,
-            "seller_user":  `${i+1}`,
-            "categories":   i%2 == 0? 1:2
-        })
+                "name":         `Ferrari${i}`.toLowerCase(),
+                "description":  `Color roja numero${100+i}`.toLowerCase(),
+                "quantity":     i+1,
+                "status":       true,
+                "seller_user":  `${i+1}`,
+                "categories":   1
+            })
+        }else{
+            productosBulk.push({
+            
+                "name":         `Lavandina${i}`.toLowerCase(),
+                "description":  `Art limpieza rotulo ${100+i}`.toLowerCase(),
+                "quantity":     i+1,
+                "status":       true,
+                "seller_user":  `${i+1}`,
+                "categories":   2
+            })
+    
+        }
     }
 
     await Product.bulkCreate(productosBulk)
@@ -88,20 +100,20 @@ const bulkTransactions = async () => {
 }
 
 const bulkTransactionsProducts = async() => {
-    await TransactionProduct.create({id:1,transactionId:1,productId:1,quantity:1})
-    await TransactionProduct.create({id:2,transactionId:2,productId:2,quantity:2})
+    await TransactionProduct.create({id:1,transactionId:1,productId:4,quantity:1})
+    await TransactionProduct.create({id:2,transactionId:2,productId:1,quantity:1})
 
-    const producto1 = await Product.findByPk(1)
+    const producto1 = await Product.findByPk(4)
     await producto1.decrement('quantity', { by: 1 });
             
             if (producto1.quantity <= 1) {
               await producto1.update({ status: false });
             }
 
-    const producto2 = await Product.findByPk(2)
-    await producto2.decrement('quantity', { by: 2 });
+    const producto2 = await Product.findByPk(1)
+    await producto2.decrement('quantity', { by: 1 });
      
-            if (producto1.quantity <= 1) {
+            if (producto2.quantity <= 1) {
                 await producto2.update({ status: false });
             }
 

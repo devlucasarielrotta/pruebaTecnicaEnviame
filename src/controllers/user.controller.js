@@ -1,9 +1,7 @@
 import { request, response } from "express";
 import bcrypt from 'bcryptjs';
 import { Sequelize } from 'sequelize';
-import User from "../models/User.models.js";
-import Transaction from "../models/Transaction.models.js";
-import Product from "../models/Product.model.js";
+import {User, Transaction,Product} from "../models/index.models.js";
 
 
 const getUsers = async ( req=request, res=response ) => {
@@ -65,8 +63,8 @@ const getUsers = async ( req=request, res=response ) => {
         
     }catch(error){
         console.log(error);
-        res.status(400).json({
-            msg:error
+        res.status(500).json({
+            msg:error.message
         })
     }
     
@@ -100,7 +98,7 @@ const getUser = async ( req=request, res=response ) => {
     }catch(error){
         console.log(error);
         res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
     
@@ -141,8 +139,8 @@ const postUser = async ( req=request, res=response ) => {
     }catch(error){
 
         console.log(error);
-        res.status(400).json({
-            msg:error
+        res.status(500).json({
+            msg:error.message
         })
 
     }
@@ -229,7 +227,7 @@ const deleteUser = async ( req=request, res=response ) => {
 
     }catch(error){
          res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
  

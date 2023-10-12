@@ -1,6 +1,9 @@
 import { Router } from "express";
-import {check,body,param} from 'express-validator';
-import { getUsers,getUser,deleteUser,postUser,putUser} from "../controllers/user.controller.js";
+import { getUsers,getUser,deleteUser,postUser,putUser} from "../controllers/index.controller.js";
+import { validarJWT } from "../middlewares/validar-jwt.js";
+import { validarCampos } from "../middlewares/validar-campos.js";
+
+
 const router = Router();
 
 
@@ -8,10 +11,16 @@ router.get('/',getUsers);
 
 router.get('/:id',getUser);
 
-router.post('/',postUser);
+router.post('/',[
+    validarJWT,
+    validarCampos
+],postUser);
 
 router.put('/:id',putUser);
 
-router.delete('/:id',deleteUser);
+router.delete('/:id',[
+    validarJWT,
+    validarCampos
+],deleteUser);
 
 export default router;

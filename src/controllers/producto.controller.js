@@ -1,8 +1,5 @@
 import { request, response } from "express";
-
-import Producto from "../models/Product.model.js";
-import User from "../models/User.models.js";
-import Category from "../models/Category.models.js";
+import {Product, User,Category} from '../models/index.models.js'
 
 const getProducts = async ( req=request, res=response ) => {
 
@@ -11,7 +8,7 @@ const getProducts = async ( req=request, res=response ) => {
         const {offset = 0,limit = 100} = req.query;
 
         
-        const {count:total,rows:productos} = await Producto.findAndCountAll({
+        const {count:total,rows:productos} = await Product.findAndCountAll({
             offset:Number(offset),limit:Number(limit),
                 include: [
                     {
@@ -51,7 +48,7 @@ const getProduct = async ( req=request, res=response ) => {
             }) 
         }
 
-        const usuarioDB = await Producto.findByPk(Number(id));
+        const usuarioDB = await Product.findByPk(Number(id));
 
         if(!usuarioDB){
             return res.status(400).json({
@@ -66,8 +63,8 @@ const getProduct = async ( req=request, res=response ) => {
 
     }catch(error){
         console.log(error);
-        res.status(400).json({
-            msg:error
+        res.status(500).json({
+            msg:error.message
         })
     }
     
@@ -75,7 +72,7 @@ const getProduct = async ( req=request, res=response ) => {
 
 
 const postProduct = async ( req=request, res=response ) => {
-
+    
     const {name,description="sin descripcion",quantity=1,status=1,seller_user,categories} = req.body;
    
     if(!name || !seller_user || !categories || isNaN(categories) || isNaN(seller_user)){
@@ -84,7 +81,7 @@ const postProduct = async ( req=request, res=response ) => {
          })
             
     }
-    const nameDB = await Producto.findOne({where: {name}})
+    const nameDB = await Product.findOne({where: {name}})
     if(nameDB){
 
         return res.status(400).json({
@@ -118,7 +115,7 @@ const postProduct = async ( req=request, res=response ) => {
     }
     try {
 
-        const product = await Producto.create(data)
+        const product = await Product.create(data)
         res.status(200).json({
             msg:'Producto creado exitosamente', product
         })
@@ -126,8 +123,8 @@ const postProduct = async ( req=request, res=response ) => {
     }catch(error){
 
         console.log(error);
-        res.status(400).json({
-            msg:error
+        res.status(500).json({
+            msg:error.message
         })
 
     }
@@ -148,7 +145,7 @@ const putProduct = async ( req=request, res=response ) => {
             }) 
         }
 
-        const usuarioDB = await Producto.findByPk(id);
+        const usuarioDB = await Product.findByPk(id);
 
         if(!usuarioDB){
             return res.status(400).json({
@@ -168,8 +165,8 @@ const putProduct = async ( req=request, res=response ) => {
            msg: usuarioDB
         })
     }catch(error){
-         res.status(400).json({
-            msg:error
+         res.status(500).json({
+            msg:error.message
         })
     }
  
@@ -185,7 +182,7 @@ const deleteProduct = async ( req=request, res=response ) => {
                 msg:`El id ${id} no es un número`
             }) 
         }
-        const productoDB = await Producto.findByPk(id);
+        const productoDB = await Product.findByPk(id);
 
         if(!productoDB){
             return res.status(400).json({
@@ -200,7 +197,7 @@ const deleteProduct = async ( req=request, res=response ) => {
 
     }catch(error){
          res.status(500).json({
-            msg:error
+            msg:error.message
         })
     }
  
