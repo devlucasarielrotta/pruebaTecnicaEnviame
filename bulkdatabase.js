@@ -118,7 +118,7 @@ const bulkTransactionsProducts = async() => {
             }
 
 }
-const main = async () => {
+export default async () => {
 
     await dbConnection();
     await bulkUsuarios();
@@ -126,8 +126,6 @@ const main = async () => {
     await bulkProductos();
     await bulkTransactions();
     await bulkTransactionsProducts();
-    await dbClose();
-
+    console.log("Bulk de datos finalizdo")
 }
 
-main();

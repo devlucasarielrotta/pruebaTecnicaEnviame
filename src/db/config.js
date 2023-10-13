@@ -36,7 +36,7 @@ const dbConnection = async( ) => {
     try{ 
         
         await db.authenticate();
-        await db.sync({alter:true});      
+        await db.sync({force:true});      
         
 
         console.log('Base de datos online')

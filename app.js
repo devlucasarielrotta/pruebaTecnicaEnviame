@@ -1,3 +1,4 @@
+import bulkdatabase from './bulkdatabase.js';
 import {Transaction , User,Product,Category, Server, TransactionProduct} from './src/models/index.models.js';
 
 Transaction.belongsTo(User, { as: 'buyerUser', foreignKey: 'buyer_user' });
@@ -14,7 +15,7 @@ Category.hasMany(Product, { foreignKey: 'categories', as: 'products'});
 
 
 const server = new Server();
-
+await bulkdatabase()
 server.listen();
 
 
