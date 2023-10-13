@@ -1,17 +1,19 @@
 # ECOMMERCE APP by Lucas Ariel Rotta
 
 ## Ejecutar proyecto con docker
-1. Docker Compose 
-2. Ejecutar npm run bulk desde la terminal de Docker para cargar el bulk de datos
+1. Ejecutar el comando docker-compose up -d.
+2. Ejecutar el comando docker-compose.
 3. Ingresar a la ruta /login para obtener un JWT valido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como    "email":"lucas100@lucas.com",
-"password":"prueba"
+"password":"prueba".
+4. Recordar que la aplicacion utilizar bearer token como validacion.
 
 ## Ejecutar proyecto localmente
-1. Ejecutar el comando npm install
-2. Ejecutar el comando npm run bulk para cargar con información la base de datos
-3. Ejecutar el comando npm run start para ejecutar la aplicación
-4. Ingresar a la ruta /login para obtener un JWT valido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como    "email":"lucas100@lucas.com",
-"password":"prueba"
+Modificar el las variables .env deben quedar de la siguiente manera: MYSQL_PASSWORD= MYSQL_HOST='127.0.0.1'.
+1. Ejecutar el comando npm install.
+2. Ejecutar el comando npm run start para ejecutar la aplicación.
+3. Ingresar a la ruta /login para obtener un JWT valido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como    "email":"lucas100@lucas.com",
+"password":"prueba".
+4. Recordar que la aplicacion utilizar bearer token como validacion.
 
 
 ## Los endpoints de la API son los siguientes:
