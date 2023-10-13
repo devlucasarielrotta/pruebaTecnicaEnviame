@@ -3,18 +3,19 @@
 ## Ejecutar proyecto con docker
 1. Ejecutar el comando docker-compose up -d.
 2. Ejecutar el comando docker-compose up.
-3. Ingresar a la ruta /login para obtener un JWT valido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como    "email":"lucas100@lucas.com",
+3. Ingresar a la ruta /login para obtener un JWT válido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como "email":"lucas100@lucas.com",
 "password":"prueba".
-4. Recordar que la aplicacion utilizar bearer token como validacion.
+4. Recordar que la aplicación utilizar bearer token como validación.
+5. Al ejectutar la aplicación se cargan datos mock. 
 
 ## Ejecutar proyecto localmente
 Modificar el las variables .env deben quedar de la siguiente manera: MYSQL_PASSWORD= MYSQL_HOST='127.0.0.1'.
 1. Ejecutar el comando npm install.
 2. Ejecutar el comando npm run start para ejecutar la aplicación.
-3. Ingresar a la ruta /login para obtener un JWT valido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como    "email":"lucas100@lucas.com",
+3. Ingresar a la ruta /login para obtener un JWT válido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como "email":"lucas100@lucas.com",
 "password":"prueba".
-4. Recordar que la aplicacion utilizar bearer token como validacion.
-
+4. Recordar que la aplicación utilizar bearer token como validación.
+5. Al ejectutar la aplicación se cargan datos mock. 
 
 ## Los endpoints de la API son los siguientes:
 
