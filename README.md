@@ -2,7 +2,7 @@
 
 ## Ejecutar proyecto con docker
 1. Ejecutar el comando docker-compose up -d.
-2. Ejecutar el comando docker-compose.
+2. Ejecutar el comando docker-compose up.
 3. Ingresar a la ruta /login para obtener un JWT valido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como    "email":"lucas100@lucas.com",
 "password":"prueba".
 4. Recordar que la aplicacion utilizar bearer token como validacion.
