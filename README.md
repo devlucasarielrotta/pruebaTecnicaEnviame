@@ -1,6 +1,7 @@
 # ECOMMERCE APP by Lucas Ariel Rotta
 
 ## Ejecutar proyecto con docker
+0. Ejecutar el comando npm install.
 1. Ejecutar el comando docker-compose up -d.
 2. Ejecutar el comando docker-compose up.
 3. Ingresar a la ruta /login para obtener un JWT válido con el usuario de prueba que se encuentra en el postman, si no se encuentra utilizar uno ya registrado como "email":"lucas100@lucas.com",
